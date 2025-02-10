@@ -1,4 +1,4 @@
-Alright alright alright, let's get those front-end skills to life. 
+Alright alright alright, let's get those front-end skills back to life. 
 
 ### Goals 
 
