@@ -1,7 +1,7 @@
-import styles from './styles/Movie.module.css'
+import styles from "./styles/Movie.module.css";
 
 function Movie({ movie }) {
-  if (!movie) {
+  if (!(movie.Title && movie.Poster)) {
     return <div>Loading...</div>;
   }
 

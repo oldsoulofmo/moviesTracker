@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieList from "./Components/MovieList";
+import SearchBar from "./Components/SearchBar";
 
 const KEY = "b60db4df";
 
@@ -41,6 +42,9 @@ function App() {
 
   return (
     <div>
+      <header>
+        <SearchBar />
+      </header>
       <MovieList movies={movies} />
     </div>
   );
