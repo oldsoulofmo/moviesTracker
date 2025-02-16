@@ -1,3 +1,26 @@
 .movieItem {
-  color: #ffe6a7;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.movieItem img {
+  height: 300px;
+}
+
+.movieItem h3 {
+  display: flex;
+  justify-content: center;
+}
+
+.movieItem span {
+  color: black;
+  background-color: #fff;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
 }

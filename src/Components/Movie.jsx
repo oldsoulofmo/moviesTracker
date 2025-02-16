@@ -10,7 +10,7 @@ function Movie({ movie }) {
       <h3>
         <span>{movie.Title}</span>
       </h3>
-      <div>
+      <div className={styles.imageContainer}>
         <img src={movie.Poster} alt="" />
       </div>
     </div>
