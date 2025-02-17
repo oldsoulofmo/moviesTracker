@@ -19,31 +19,47 @@ const randomMovieTitles = [
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
-  useEffect(function () {
-    const fetchMovies = async () => {
-      try {
-        const promises = randomMovieTitles.map((title) =>
-          fetch(`http://www.omdbapi.com/?apikey=${KEY}&t=${title}`).then(
-            (response) => response.json()
-          )
-        );
+  useEffect(
+    function () {
+      const fetchMovies = async () => {
+        try {
+          const promises = randomMovieTitles.map((title) =>
+            fetch(`http://www.omdbapi.com/?apikey=${KEY}&t=${title}`).then(
+              (response) => response.json()
+            )
+          );
 
-        const data = await Promise.all(promises);
+          const data = await Promise.all(promises);
 
-        console.log(data);
-        setMovies(data);
-      } catch (err) {
-        console.error("Error fetching data :", err);
-      }
-    };
-    fetchMovies();
-  }, []);
+          console.log(data);
+          setMovies(data);
+        } catch (err) {
+          console.error("Error fetching data :", err);
+        }
+      };
+      fetchMovies();
+    },
+    [search]
+  );
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
+  function handleChange(e) {
+    setSearch(e.target.value);
+  }
 
   return (
     <div>
       <header>
-        <SearchBar />
+        <SearchBar
+          search={search}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+        />
       </header>
       <MovieList movies={movies} />
     </div>

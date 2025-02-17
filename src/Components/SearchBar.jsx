@@ -1,12 +1,16 @@
 import styles from "./styles/SearchBar.module.css";
 
-function SearchBar() {
+function SearchBar({ handleSubmit, search, handleChange }) {
   return (
-    <input
-      className={styles.input}
-      type="text"
-      placeholder="Search for movies ..."
-    />
+    <form onSubmit={handleSubmit}>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Search for movies ..."
+        value={search}
+        onChange={(e) => handleChange}
+      />
+    </form>
   );
 }
 
